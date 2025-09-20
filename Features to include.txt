@@ -1,0 +1,17 @@
+Features to include:
+
+Products CRUD (admin only) ✅
+
+Categories & search/filter/sort ✅
+
+Cart & checkout ✅
+
+Payment integration (Stripe/PayPal) ✅
+
+Order history + status tracking ✅
+
+Basic analytics (e.g., total sales, most sold items) ✅
+
+Stack: Express.js + PostgreSQL/MongoDB + Stripe API
+
+Extra: Pair it with a frontend (React or EJS templates) if you want full-stack showcase. ✅

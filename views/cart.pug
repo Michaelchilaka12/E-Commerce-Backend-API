@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  h1 Your Cart
+
+  if cart.items.length
+    table.cart-table
+      thead
+        tr
+          th Product
+          th Quantity
+          th Price
+          th Subtotal
+          th Actions
+      tbody
+        each item in cart.items
+          tr
+            td= item.product.name
+            td
+              form(action=`/cart/update/${item.product._id}` method="POST" style="display:inline")
+                input(type="hidden" name="action" value="decrease")
+                button(type="submit") ➖
+              span.quantity= item.quantity
+              form(action=`/cart/update/${item.product._id}` method="POST" style="display:inline")
+                input(type="hidden" name="action" value="increase")
+                button(type="submit") ➕
+            td $#{item.price.toFixed(2)}
+            td $#{(item.price * item.quantity).toFixed(2)}
+            td
+              form(action=`/cart/remove/${item.product._id}` method="POST")
+                button(type="submit") ❌ Remove
+
+    p.total Total: $#{cart.totalPrice.toFixed(2)}
+
+    a.btn(href="/checkout") Proceed to Checkout
+  else
+    p Your cart is empty.

@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  h2.mb-4 Checkout
+  p Review your order and pay with Paystack:
+
+  button#paystack-btn.btn.btn-primary(type="button") Pay with Paystack
+
+  // Paystack SDK
+  script(src="https://js.paystack.co/v1/inline.js")
+  script.
+    document.getElementById("paystack-btn").addEventListener("click", payWithPaystack);
+
+    function payWithPaystack() {
+      let handler = PaystackPop.setup({
+        key: "#{PAYSTACK_PUBLIC_KEY}",
+        email: "#{email}",
+        amount: #{amount}, // already in Kobo
+        ref: "#{reference}", // backend-generated reference
+        currency: "NGN",
+        callback: function(response) {
+          // Verify payment on backend
+          fetch("/api/v1/paystack/verify-payment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ reference: response.reference })
+          })
+          .then(res => res.json())
+          .then(data => {
+            if (data.success) {
+              alert("Payment complete! Reference: " + response.reference);
+              window.location.href = "/orders";
+            } else {
+              alert("Payment verification failed!");
+            }
+          })
+          .catch(err => alert("Error verifying payment: " + err.message));
+        },
+        onClose: function() {
+          alert("Transaction was not completed, window closed.");
+        }
+      });
+
+      handler.openIframe();
+    }

@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 Admin Analytics
+
+  div
+    h2 Total Sales
+    p #{totalSales} USD
+
+  div
+    h2 Most Sold Items
+    ul
+      each item in mostSoldItems
+        li #{item.productDetails.name} - Sold: #{item.totalSold}

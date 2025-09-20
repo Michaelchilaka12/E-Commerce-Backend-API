@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1 Admin - Products
+  a.btn(href="/admin/products/new") ➕ Add New Product
+
+  if products.length
+    table.admin-table
+      thead
+        tr
+          th Name
+          th Price
+          th Actions
+      tbody
+        each product in products
+          tr
+            td= product.name
+            td $#{product.price.toFixed(2)}
+            td
+              a(href=`/products/${product._id}/edit`) ✏️ Edit
+              form(action=`/products/${product._id}/delete?_method=DELETE` method="POST" style="display:inline")
+                button(type="submit") ❌ Delete
+  else
+    p No products found.

@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1 My Orders
+
+  if orders.length
+    table.order-table
+      thead
+        tr
+          th Order ID
+          th Status
+          th Total
+          th Placed
+          th Actions
+      tbody
+        each order in orders
+          tr
+            td= order._id
+            td= order.status
+            td $#{order.totalPrice.toFixed(2)}
+            td= order.createdAt.toDateString()
+            td
+              if order.status !== "cancelled" && order.status !== "completed"
+                form(action=`/orders/${order._id}/cancel` method="POST")
+                  button(type="submit") ❌ Cancel
+  else
+    p You have no orders.

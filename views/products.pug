@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h2.mb-4 Products
+  if products.length
+    .row
+      each product in products
+        .col-md-3.mb-4
+          .card.h-100.text-center
+            .img-wrapper
+              img.card-img-top(src=product.images[0] || "https://via.placeholder.com/300", alt=product.name)
+            .card-body
+              h5.card-title= product.name
+              p.card-text $#{product.price}
+              a.btn.btn-sm.btn-outline-primary(href=`/products/${product._id}`) View Details
+  else
+    p.text-muted No products available.

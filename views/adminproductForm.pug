@@ -1,0 +1,64 @@
+extends layout
+
+block content
+  h1 Create Product
+
+  form(action="/products/adminCreateProduct" method="POST" enctype="multipart/form-data")
+    // Name
+    div
+      label(for="name") Product Name
+      input(type="text" name="name" placeholder="e.g. Infinix Hot 30i" required)
+
+    // Description
+    div
+      label(for="description") Description
+      textarea(name="description" placeholder="Write a short description..." required)
+
+    // Price
+    div
+      label(for="price") Price
+      input(type="number" name="price" min="0" required)
+
+    // Category
+    div
+      label(for="category") Category
+      input(type="text" name="category" placeholder="e.g. Smart Phones" required)
+
+    // Stock
+    div
+      label(for="stock") Stock
+      input(type="number" name="stock" min="0" required)
+
+    // SKU
+    div
+      label(for="sku") SKU
+      input(type="text" name="sku" placeholder="e.g. infinix-hot30i" required)
+
+    // Variants (size, color, stock)
+    h3 Variants
+    div
+      label(for="variants[0][size]") Size
+      input(type="text" name="variants[0][size]" placeholder="e.g. 13 inches long")
+
+      label(for="variants[0][color]") Color
+      input(type="text" name="variants[0][color]" placeholder="e.g. Black")
+
+      label(for="variants[0][stock]") Variant Stock
+      input(type="number" name="variants[0][stock]" min="0")
+
+    // Discount Price
+    div
+      label(for="discountPrice") Discount Price
+      input(type="number" name="discountPrice" min="0")
+
+    // Tags
+    div
+      label(for="tags") Tags (comma separated)
+      input(type="text" name="tags" placeholder="e.g. smart phone, infinix, hot30i")
+
+    // Image Upload
+    div
+      label(for="image") Upload Image
+      input(type="file" name="image" accept="image/*" required)
+
+    button(type="submit") Create Product

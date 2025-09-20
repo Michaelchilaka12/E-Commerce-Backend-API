@@ -1,0 +1,255 @@
+/* Product Grid Images */
+/* Product Grid Images */
+.img-wrapper {
+  width: 100%;
+  height: 200px;            /* set fixed thumbnail height */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f9fa;      /* light background behind images */
+  border-radius: 8px;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* crop images nicely */
+}
+
+/* Product Detail Image */
+.detail-img-wrapper {
+  width: 100%;
+  max-height: 400px;        /* maximum height */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-img-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;      /* show full image without cropping */
+}
+
+/* Product Detail Layout */
+.product-detail {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+  align-items: flex-start;
+}
+
+.detail-left {
+  flex: 1;
+}
+
+.detail-img-wrapper {
+  width: 100%;
+  max-width: 400px;   /* keep image from blowing up */
+  height: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f9fa;
+}
+
+.detail-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* show full product without cropping */
+}
+
+.detail-right {
+  flex: 1;
+}
+
+.detail-right h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.detail-right p.price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #27ae60;
+  margin-bottom: 1.5rem;
+}
+
+/* Add to Cart Form */
+.add-to-cart-form {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.add-to-cart-form label {
+  font-weight: bold;
+}
+
+.add-to-cart-form input[type="number"] {
+  width: 70px;
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-to-cart-form button {
+  padding: 0.6rem 1.2rem;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-to-cart-form button:hover {
+  background: #219150;
+}
+
+
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.cart-table th,
+.cart-table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.cart-table td button {
+  padding: 0.4rem 0.8rem;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cart-table td button:hover {
+  background: #c0392b;
+}
+
+.total {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: right;
+  margin-top: 1rem;
+}
+
+a.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: #27ae60;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+a.btn:hover {
+  background: #219150;
+}
+
+.quantity {
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.cart-table button {
+  padding: 0.4rem 0.7rem;
+  margin: 0 2px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cart-table button[type="submit"] {
+  background: #eee;
+}
+
+.cart-table button:hover {
+  background: #ddd;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.order-table th,
+.order-table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.order-table td button {
+  padding: 0.4rem 0.8rem;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.order-table td button:hover {
+  background: #c0392b;
+}
+
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.admin-table th, .admin-table td {
+  border: 1px solid #ddd;
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.admin-table td a, 
+.admin-table td button {
+  margin: 0 5px;
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #219150;
+}

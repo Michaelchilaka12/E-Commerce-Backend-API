@@ -1,0 +1,52 @@
+extends layout
+
+block content
+  h1 Update Product
+
+  form(action=`/products/${product._id}/edit?_method=PATCH` method="POST")
+    //- Product Name
+    div
+      label(for="name") Name:
+      input#name(type="text" name="name" value=product.name required)
+
+    //- Description
+    div
+      label(for="description") Description:
+      textarea#description(name="description" rows="3" required)= product.description
+
+    //- Price
+    div
+      label(for="price") Price:
+      input#price(type="number" name="price" value=product.price step="0.01" required)
+
+    //- Category
+    div
+      label(for="category") Category:
+      input#category(type="text" name="category" value=product.category required)
+
+    //- Brand
+    div
+      label(for="brand") Brand:
+      input#brand(type="text" name="brand" value=product.brand)
+
+    //- Stock
+    div
+      label(for="stock") Stock:
+      input#stock(type="number" name="stock" value=product.stock min="0" required)
+
+    //- Discount Price
+    div
+      label(for="discountPrice") Discount Price:
+      input#discountPrice(type="number" name="discountPrice" value=product.discountPrice step="0.01")
+
+    //- Is Featured
+    div
+      label(for="isFeatured") Featured:
+      input#isFeatured(type="checkbox" name="isFeatured" checked=product.isFeatured)
+
+    //- Tags
+    div
+      label(for="tags") Tags (comma separated):
+      input#tags(type="text" name="tags" value=product.tags ? product.tags.join(', ') : '')
+
+    button(type="submit") Update Product
