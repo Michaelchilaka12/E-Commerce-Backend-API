@@ -131,14 +131,15 @@ exports.restrictTo = (...roles)=>{
         //roles is an array['admin','lead-guide']
         if(!roles.includes(req.user.role)){
             
-          
-            return next(new AppError('you do not have permission to perform this action',403))
-        }
-        //  next();
-           res.status(201).render("signup-success", {
+            res.status(201).render("signup-success", {
                 title: "ACCESS DENIED", 
                 message: "You do not have access to this page!.",
-    });
+            });
+            // return next(new AppError('you do not have permission to perform this action',403))
+        }
+        //  next();
+        res.redirect("/admin/products")
+         
     }
    
 }
