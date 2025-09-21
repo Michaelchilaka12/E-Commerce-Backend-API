@@ -132,10 +132,10 @@ exports.restrictTo = (...roles)=>{
         if(!roles.includes(req.user.role)){
             
              res.status(201).render("signup-success", {
-      title: "ACCESS DENIED",
-      message: "You do not have access to this page!.",
+                title: "ACCESS DENIED", 
+                message: "You do not have access to this page!.",
     });
-            return next(new AppError('you do not have permission to perform this action',403))
+            // return next(new AppError('you do not have permission to perform this action',403))
         }
          next();
     }
