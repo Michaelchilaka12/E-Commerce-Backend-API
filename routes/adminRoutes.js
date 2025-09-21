@@ -4,6 +4,7 @@ const authController = require('../controllers/authController');
 const productController = require('../controllers/productController')
 const upload = require('../middleware/uploads')
 const analyticsController = require('../controllers/analyticsController');
+const { route } = require('./paystackRoutes');
 
 
 
@@ -11,6 +12,9 @@ router.use(authController.protect)
 router.use(authController.restrictTo('admin'))
 
 // Admin UI routes
+router.get("/",(req,res) =>{
+    res.redirect("/products")
+})
 router.get("/products", productController.adminListProducts);
 router.get("/products/new", productController.renderCreateForm);
 router.post("/products/new", productController.createOne1);
