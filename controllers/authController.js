@@ -34,8 +34,7 @@ const createSendToken = (user, statusCode, res) => {
 
   res.cookie('jwt', token, cookieOptions);
 
-    // redirect to products page
-  res.redirect("/products");
+ 
 
 //   // Hide password field
 //   user.password = undefined;
@@ -45,6 +44,8 @@ const createSendToken = (user, statusCode, res) => {
 //     token,
 //     data: { user }
 //   });
+    //redirect to products page
+  res.redirect("/products");
 };
 
 
@@ -78,6 +79,8 @@ exports.signup = catchAsync( async (req, res,next) =>{
           subject: "User Activity Notification",
           message: `User ${newUser.name} (ID: ${newUser._id}) just created an account now!.`,
         });
+
+    
     
 
 });
@@ -137,11 +140,7 @@ exports.restrictTo = (...roles)=>{
          next();
         
          
-    }
-    res.status(201).render("signup-success", {
-                title: "ACCESS DENIED", 
-                message: "You do not have access to this page!.",
-            });
+    } 
 }
 
 

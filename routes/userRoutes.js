@@ -26,4 +26,5 @@ router.get('/logout',authController.logout);
 router.get('/',authController.restrictTo('admin'),userController.getAllUsers);
 
 
+
 module.exports = router
