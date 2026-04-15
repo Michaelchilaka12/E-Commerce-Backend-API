@@ -26,4 +26,6 @@ router.get("/products/:id/edit",protect,productController.getUpdateForm)
 
 
 router.post("/products/new", productController.createOne1);
+router.post("/login", authController.login);
+router.post("/signup", authController.signup);
 module.exports = router;

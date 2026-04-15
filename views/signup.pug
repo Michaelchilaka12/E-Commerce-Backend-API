@@ -1,7 +1,7 @@
 extends layout
 block content
   h2.mb-4 Signup
-  form(method="POST", action="/api/v1/users/signup")
+  form(method="POST", action="/signup")
     .mb-3
       label.form-label(for="name") Name
       input.form-control(type="text", name="name", required)

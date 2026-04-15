@@ -1,7 +1,7 @@
 extends layout
 block content
   h2.mb-4 Login
-  form(method="POST", action="/api/v1/users/login")
+  form(method="POST", action="/login")
     .mb-3
       label.form-label(for="email") Email
       input.form-control(type="email", name="email", required)

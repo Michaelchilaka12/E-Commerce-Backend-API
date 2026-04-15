@@ -38,15 +38,26 @@ const createSendToken = (user, statusCode, res) => {
 
 //   // Hide password field
 //   user.password = undefined;
+  
 
-//   res.status(statusCode).json({
-//     status: 'success',
-//     token,
-//     data: { user }
-//   });
-    //redirect to products page
-  res.redirect("/products");
+    if (res.req.originalUrl.startsWith('/api')) {
+        // API response (Postman)
+        return res.status(statusCode).json({
+            status: 'success',
+            token,
+            data: { user }
+        });
+    }
+     //redirect to products page
+   return res.redirect("/products");
+
+
+
+
+     
 };
+
+
 
 
 
@@ -61,7 +72,7 @@ exports.signup = catchAsync( async (req, res,next) =>{
         role:req.body.role,
     });
 //using jwt to create a token for a new user
-    createSendToken(newUser,201,res)
+    createSendToken(newUser,201,res,req)
     
     
         // ✅ Send email notification to user
@@ -115,7 +126,7 @@ exports.login = catchAsync( async(req,res,next) =>{
             })
         }
 
-        createSendToken(user,200,res)
+        createSendToken(user,200,res,req)
     
 });
 
